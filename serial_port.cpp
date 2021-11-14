@@ -65,7 +65,7 @@ bool serial_port::remove_call(cid id)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-bool serial_port::wait_until(const condition& cond, const msec& time)
+bool serial_port::wait_until(const condition& cond, const sec& time)
 {
     bool expired = false;
 
@@ -80,8 +80,9 @@ bool serial_port::wait_until(const condition& cond, const msec& time)
     // wait for condition
     while(!cond())
     {
-        port_.get_io_service().reset();
-        port_.get_io_service().run_one();
+        asio::io_context& ioc = static_cast<asio::io_service&>(port_.get_executor().context());
+        ioc.restart();
+        ioc.run_one();
 
         if(expired) return false;
     }

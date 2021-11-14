@@ -34,6 +34,7 @@ using pos = byte;
 using res = bits;
 
 // time
+using sec = std::chrono::seconds;
 using msec = std::chrono::milliseconds;
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -86,7 +87,7 @@ enum mode : byte
     pullup_in   = 11,
 };
 
-static constexpr msec forever { -1 };
+static constexpr sec forever { -1 };
 
 }
 

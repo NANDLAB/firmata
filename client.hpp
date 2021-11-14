@@ -66,7 +66,7 @@ public:
     // set new read timeout
     template<typename Rep, typename Period>
     static void timeout(const std::chrono::duration<Rep, Period>&);
-    static void timeout(const msec& time) noexcept { time_ = time; }
+    static void timeout(const sec& time) noexcept { time_ = time; }
 
     // current read timeout
     static auto const& timeout() noexcept { return time_; }
@@ -123,7 +123,7 @@ private:
     std::string string_;
     call_chain<string_call> chain_;
 
-    static msec time_;
+    static sec time_;
 
     ////////////////////
     // enable/disable reporting for a digital pin
@@ -172,7 +172,7 @@ private:
 template<typename Rep, typename Period>
 inline void
 client::timeout(const std::chrono::duration<Rep, Period>& time)
-{ timeout(std::chrono::duration_cast<msec>(time)); }
+{ timeout(std::chrono::duration_cast<sec>(time)); }
 
 ////////////////////////////////////////////////////////////////////////////////
 inline void swap(client& lhs, client& rhs) noexcept { lhs.swap(rhs); }

@@ -73,7 +73,7 @@ public:
     virtual bool remove_call(cid) override;
 
     // block until condition
-    virtual bool wait_until(const condition&, const msec&) override;
+    virtual bool wait_until(const condition&, const sec&) override;
 
 private:
     ////////////////////

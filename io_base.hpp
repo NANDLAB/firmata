@@ -40,7 +40,7 @@ public:
     using condition = std::function<bool()>;
 
     // block until condition or timeout
-    virtual bool wait_until(const condition&, const msec&) = 0;
+    virtual bool wait_until(const condition&, const sec&) = 0;
 
 protected:
     ////////////////////
