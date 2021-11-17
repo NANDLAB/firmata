@@ -88,20 +88,20 @@ public:
 
     ////////////////////
     // get all pins (for use in range-based "for" loops)
-    auto& pins() noexcept { return pins_; }
-    auto const& pins() const noexcept { return pins_; }
+    firmata::pins& pins() noexcept { return pins_; }
+    firmata::pins const& pins() const noexcept { return pins_; }
 
     // get pin
-    auto& pin(pos n) { return pins_.get(n); }
-    auto const& pin(pos n) const { return pins_.get(n); }
+    firmata::pin& pin(pos n) { return pins_.get(n); }
+    firmata::pin const& pin(pos n) const { return pins_.get(n); }
 
     // get analog pin
-    auto& pin(analog n) { return pins_.get(analog_in, n); }
-    auto const& pin(analog n) const { return pins_.get(analog_in, n); }
+    firmata::pin& pin(analog n) { return pins_.get(analog_in, n); }
+    firmata::pin const& pin(analog n) const { return pins_.get(analog_in, n); }
 
     // get pin that supports certain mode
-    auto& pin(mode m, pos n) { return pins_.get(m, n); }
-    auto const& pin(mode m, pos n) const { return pins_.get(m, n); }
+    firmata::pin& pin(mode m, pos n) { return pins_.get(m, n); }
+    firmata::pin const& pin(mode m, pos n) const { return pins_.get(m, n); }
 
     ////////////////////
     // print out host info (for debugging only)
