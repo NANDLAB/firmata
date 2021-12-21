@@ -30,6 +30,6 @@ add_library(firmata STATIC
 find_package(Threads REQUIRED)
 find_package(Boost REQUIRED system)
 
-target_include_directories(firmata PUBLIC Threads::Threads Boost::system "${CMAKE_CURRENT_SOURCE_DIR}/..")
-target_link_libraries(firmata PRIVATE Threads::Threads Boost::system)
+target_include_directories(firmata PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/..")
+target_link_libraries(firmata PUBLIC Threads::Threads Boost::system)
 target_compile_definitions(firmata PRIVATE FIRMATA_LIBRARY)
